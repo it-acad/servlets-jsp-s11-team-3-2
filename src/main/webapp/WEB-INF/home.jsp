@@ -6,6 +6,6 @@
 <body>
     <%@include file="header.html" %>
 
-    <h1>Welcome to awesome To-Do List</h1>
+    <h1>Welcome to awesome To-Do List!!</h1>
 </body>
 </html>

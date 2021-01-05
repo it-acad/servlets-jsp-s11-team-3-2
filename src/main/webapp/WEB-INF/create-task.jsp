@@ -10,15 +10,14 @@
     result = (result != null ? result : "");
 %>
 
-<h3>
-    <%=result%>
-</h3>
+<h1>Create new Task</h1>
+<h3><%=result%></h3>
 
 <form action="/create-task" method="post">
     <table>
         <tr>
             <td>
-                <label for="name">name: </label>
+                <label for="name">Name: </label>
             </td>
             <td>
                 <input type="text" name="name" id="name">

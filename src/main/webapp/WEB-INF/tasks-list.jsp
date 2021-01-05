@@ -12,10 +12,10 @@
     List<Task> tasks = (List<Task>) request.getAttribute("tasks");
 %>
 
-<h1>List Tasks</h1>
+<h1>List of Task</h1>
 <table border="1">
     <tr>
-        <th>Id</th>
+        <th>No.</th>
         <th>Name</th>
         <th>Priority</th>
         <th colspan="3">Operations</th>
