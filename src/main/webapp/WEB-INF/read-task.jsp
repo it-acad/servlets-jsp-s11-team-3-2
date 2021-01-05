@@ -12,15 +12,15 @@
 %>
 <table>
     <tr>
-        <td>Id</td>
+        <td>Id:</td>
         <td><%=task.getId()%></td>
     </tr>
     <tr>
-        <td>Title</td>
+        <td>Title:</td>
         <td><%=task.getTitle()%></td>
     </tr>
     <tr>
-        <td>Priority</td>
+        <td>Priority:</td>
         <td><%=task.getPriority()%></td>
     </tr>
 </table>
