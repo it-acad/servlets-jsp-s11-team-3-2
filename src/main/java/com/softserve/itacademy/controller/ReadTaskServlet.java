@@ -28,7 +28,7 @@ public class ReadTaskServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/read-task.jsp").forward(req, resp);
         } else {
             resp.setStatus(404);
-            req.getRequestDispatcher("/WEB-INF/not-found-task.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/task-not-found.jsp").forward(req, resp);
         }
     }
 }
