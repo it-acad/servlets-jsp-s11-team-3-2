@@ -13,7 +13,7 @@
 <% if (request.getAttribute("emptyName") != null) {%>
 <h2>Name is empty!</h2>
 <%}%>
-<form action="/edit-task" method="post">
+<form action="/edit-task?id=<%=task.getId()%>" method="post">
 
     <table>
         <tr>
