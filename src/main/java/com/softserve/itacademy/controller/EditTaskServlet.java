@@ -24,14 +24,9 @@ public class EditTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         task = repo.read(Integer.parseInt(req.getParameter("id")));
-        if (task != null) {
-            req.setAttribute("task", task);
-            req.getRequestDispatcher("/WEB-INF/edit-task.jsp").forward(req, resp);
-        } else {
-            resp.setStatus(404);
-            req.setAttribute("url", req.getHttpServletMapping().getPattern());
-            req.getRequestDispatcher("/WEB-INF/task-not-found.jsp").forward(req, resp);
-        }
+
+        req.setAttribute("task", task);
+        req.getRequestDispatcher("/WEB-INF/edit-task.jsp").forward(req, resp);
     }
 
     @Override
@@ -47,12 +42,8 @@ public class EditTaskServlet extends HttpServlet {
         }
         task.setTitle(name);
         task.setPriority(Priority.valueOf(req.getParameter("priority")));
-        if (repo.update(task)) {
-            resp.sendRedirect("/tasks-list");
-        } else {
-            resp.setStatus(404);
-            req.setAttribute("url", req.getHttpServletMapping().getPattern());
-            req.getRequestDispatcher("/WEB-INF/task-not-found.jsp").forward(req, resp);
-        }
+        repo.update(task);
+        resp.sendRedirect("/tasks-list");
+
     }
 }

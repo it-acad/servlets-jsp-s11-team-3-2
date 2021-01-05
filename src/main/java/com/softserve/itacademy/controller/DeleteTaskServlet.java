@@ -2,7 +2,6 @@ package com.softserve.itacademy.controller;
 
 import com.softserve.itacademy.repository.TaskRepository;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,14 +18,9 @@ public class DeleteTaskServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (repo.delete(Integer.parseInt(req.getParameter("id")))) {
-            resp.sendRedirect("/tasks-list");
-        } else {
-            resp.setStatus(404);
-            req.setAttribute("url", req.getHttpServletMapping().getPattern());
-            req.getRequestDispatcher("/WEB-INF/task-not-found.jsp").forward(req, resp);
-        }
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        repo.delete(Integer.parseInt(req.getParameter("id")));
+        resp.sendRedirect("/tasks-list");
     }
 
 
