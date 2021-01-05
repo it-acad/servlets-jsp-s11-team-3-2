@@ -23,13 +23,9 @@ public class ReadTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Task task = repo.read(Integer.parseInt(req.getParameter("id")));
-        if (task != null) {
-            req.setAttribute("task", task);
-            req.getRequestDispatcher("/WEB-INF/read-task.jsp").forward(req, resp);
-        } else {
-            resp.setStatus(404);
-            req.setAttribute("url",req.getHttpServletMapping().getPattern());
-            req.getRequestDispatcher("/WEB-INF/task-not-found.jsp").forward(req, resp);
-        }
+
+        req.setAttribute("task", task);
+        req.getRequestDispatcher("/WEB-INF/read-task.jsp").forward(req, resp);
+
     }
 }
